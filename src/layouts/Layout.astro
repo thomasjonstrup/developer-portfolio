@@ -46,6 +46,7 @@ import { Icon } from '@lucide/astro';
 										target='_blank'
 										rel='noopener noreferrer'
 										class='text-sm text-foreground hover:underline'
+										aria-label={link.label}
 									>
 										{link.icon ? <link.icon /> : null}
 										{/* <Icon name={'github'} class='size-4' /> */}
