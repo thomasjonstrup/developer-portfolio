@@ -3,6 +3,12 @@ import { Navbar } from '@/components/react/navbar';
 import { ICON_MAP, SOCIAL_LINKS } from '@/consts';
 //import { Icon } from 'astro-icon/components';
 import { Icon } from '@lucide/astro';
+import { SITE } from '@/consts';
+
+interface Props {
+	title: string;
+}
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,7 +18,7 @@ import { Icon } from '@lucide/astro';
 		<meta name='viewport' content='width=device-width' />
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 		<meta name='generator' content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{`${SITE.title} | ${title}`}</title>
 	</head>
 	<body
 		class='flex h-fit min-h-screen w-full flex-col gap-y-4 sm:gap-y-6 font-sans'
