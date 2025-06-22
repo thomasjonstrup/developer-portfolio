@@ -6,6 +6,13 @@ import { cn } from '@/lib/utils';
 import { Link } from './link';
 import { SITE } from '@/consts';
 
+/**
+ *	Navbar
+ * -
+ * A responsive navigation bar component that includes links to home, about, and contact pages,
+ *
+ * @return {JSX.Element}
+ */
 export const Navbar = () => {
 
 const handleThemeToggle = () => {

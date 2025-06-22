@@ -7,6 +7,14 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
 	underline?: boolean;
 }
 
+/**
+ * Link
+ * -
+ * A simple link component that supports external links, underlining, and custom classes.
+ *
+ * @param {PropsWithChildren<LinkProps>} {href, external, underline, className, children, ...rest}
+ * @return {JSX.Element}
+ */
 export const Link = ({href, external, underline, className, children, ...rest}: PropsWithChildren<LinkProps>) => {
 	return (
 		<a
