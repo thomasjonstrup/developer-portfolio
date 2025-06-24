@@ -12,6 +12,8 @@ interface Props {
   canonicalUrl?: string;
 }
 
+console.log("Layout props:", SITE.href);
+
 const { title, canonicalUrl = SITE.href } = Astro.props;
 ---
 
