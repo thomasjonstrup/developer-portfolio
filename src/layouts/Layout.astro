@@ -9,8 +9,10 @@ import "../styles/global.css";
 
 interface Props {
   title: string;
+  canonicalUrl?: string;
 }
-const { title } = Astro.props;
+
+const { title, canonicalUrl = SITE.href } = Astro.props;
 ---
 
 <!doctype html>
