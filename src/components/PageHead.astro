@@ -1,0 +1,29 @@
+---
+import { SITE } from "@/consts";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+}
+
+const {
+  title = "Default Title",
+  description = "Default description",
+  lang = "en",
+} = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:locale" content={SITE.locale} />
+<meta property="og:site_name" content={SITE.title} />
+<meta property="og:url" content={Astro.url} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image:alt" content={title} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content={SITE.author} />
+<meta name="twitter:site" content={SITE.href} />
+<meta name="twitter:domain" content={SITE.href} />
