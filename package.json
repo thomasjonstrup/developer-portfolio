@@ -10,6 +10,9 @@
     "astro": "astro",
     "prepare": "husky"
   },
+  "lint-staged": {
+    "*.js,*ts": "eslint --cache --fix"
+  },
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/react": "^4.3.0",

@@ -1,0 +1,15 @@
+---
+import PageHead from "@/components/PageHead.astro";
+import Section from "@/components/Section.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const currentUrl = Astro.url;
+---
+
+<Layout canonicalUrl={currentUrl}>
+  <PageHead slot="head" title="About" />
+
+  <Section>
+    <h1 class="text-4xl font-bold">Contact</h1>
+  </Section>
+</Layout>

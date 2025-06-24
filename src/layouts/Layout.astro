@@ -1,77 +1,73 @@
 ---
-import { Navbar } from '@/components/react/navbar';
-import { ICON_MAP, SOCIAL_LINKS } from '@/consts';
+import { Navbar } from "@/components/react/navbar";
+import Head from "@/components/Head.astro";
+import { ICON_MAP, SOCIAL_LINKS } from "@/consts";
 //import { Icon } from 'astro-icon/components';
-import { Icon } from '@lucide/astro';
-import { SITE } from '@/consts';
+import { Icon } from "@lucide/astro";
+import { SITE } from "@/consts";
+import "../styles/global.css";
 
 interface Props {
-	title: string;
+  title: string;
 }
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang='en'>
-	<head>
-		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<meta name='generator' content={Astro.generator} />
-		<title>{`${SITE.title} | ${title}`}</title>
-	</head>
-	<body
-		class='flex h-fit min-h-screen w-full flex-col gap-y-4 sm:gap-y-6 font-sans'
-	>
-		<!-- Header section -->
-		<Navbar client:load />
-		<!-- Main content area -->
-		<main
-			class='flex grow flex-col bg-background mt-16 lg:mt-6'
-			aria-label='Main content'
-		>
-			<div
-				class='mx-auto flex grow flex-col gap-y-4 sm:gap-y-6 px-3 py-10 sm:py-16 md:py-20 lg:py-24 sm:px-6 lg:px-8 max-w-5xl'
-			>
-				<slot />
-			</div>
-		</main>
-		<footer class='py-4'>
-			<div
-				class='mx-auto flex max-w-5xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between'
-			>
-				<div class='flex'>
-					<ul
-						class='flex flex-wrap gap-2 justify-around w-full mb-4 md:justify-center md:mb-0 md:w-auto'
-					>
-						{
-							SOCIAL_LINKS.map((link) => (
-								<li aria-label={link.label} role='listitem'>
-									<a
-										href={link.href}
-										target='_blank'
-										rel='noopener noreferrer'
-										class='text-sm text-foreground hover:underline'
-										aria-label={link.label}
-									>
-										{link.icon ? <link.icon /> : null}
-										{/* <Icon name={'github'} class='size-4' /> */}
-									</a>
-								</li>
-							))
-						}
-					</ul>
-				</div>
-			</div>
-		</footer>
-	</body>
+<html lang="en">
+  <Head />
+  <body
+    class="flex h-fit min-h-screen w-full flex-col gap-y-4 font-sans sm:gap-y-6"
+  >
+    <!-- Header section -->
+    <Navbar client:load />
+    <!-- Main content area -->
+    <main
+      class="bg-background mt-16 flex grow flex-col lg:mt-6"
+      aria-label="Main content"
+    >
+      <div
+        class="mx-auto flex max-w-5xl grow flex-col gap-y-4 px-3 py-10 sm:gap-y-6 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24"
+      >
+        <slot />
+      </div>
+    </main>
+    <footer class="py-4">
+      <div
+        class="mx-auto flex max-w-5xl flex-col items-center justify-center gap-y-2 px-4 sm:flex-row sm:justify-between"
+      >
+        <div class="flex">
+          <ul
+            class="mb-4 flex w-full flex-wrap justify-around gap-2 md:mb-0 md:w-auto md:justify-center"
+          >
+            {
+              SOCIAL_LINKS.map((link) => (
+                <li aria-label={link.label} role="listitem">
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-foreground text-sm hover:underline"
+                    aria-label={link.label}
+                  >
+                    {link.icon ? <link.icon /> : null}
+                    {/* <Icon name={'github'} class='size-4' /> */}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
