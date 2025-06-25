@@ -1,14 +1,27 @@
 {
-  "plugins": [
-    "prettier-plugin-astro",
-    "prettier-plugin-tailwindcss"
-  ],
-  "overrides": [
-    {
-      "files": "*.astro",
-      "options": {
-        "parser": "astro"
-      }
-    }
-  ]
+	"plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+	"tabWidth": 4,
+	"useTabs": true,
+	"overrides": [
+		{
+			"files": ["*.js", "*.jsx", "*.ts", "*.tsx", "*.astro"],
+			"options": {
+				"tabWidth": 4,
+				"useTabs": true
+			}
+		},
+		{
+			"files": ["*.json", "*.json5", "*.jsonc"],
+			"options": {
+				"tabWidth": 2,
+				"useTabs": false
+			}
+		},
+		{
+			"files": "*.astro",
+			"options": {
+				"parser": "astro"
+			}
+		}
+	]
 }
