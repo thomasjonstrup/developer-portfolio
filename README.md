@@ -1,4 +1,6 @@
-# Astro Starter Kit: Basics
+# Developer portfolio - Astro
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/43d46b4c-1720-4a4f-9613-6747d916c29a/deploy-status)](https://app.netlify.com/projects/developer-portfolio-tj/deploys)
 
 ```sh
 pnpm create astro@latest -- --template basics
