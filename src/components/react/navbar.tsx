@@ -4,7 +4,7 @@ import { SunIcon, MoonIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "./link";
-import { SITE } from "@/consts";
+import { NAV_LINKS, SITE } from "@/consts";
 
 /**
  *	Navbar
@@ -13,7 +13,7 @@ import { SITE } from "@/consts";
  *
  * @return {JSX.Element}
  */
-export const Navbar = () => {
+export const Navbar = ({ currentPath }: { currentPath: URL }) => {
 	const handleThemeToggle = () => {
 		const element = document.documentElement;
 
@@ -57,30 +57,26 @@ export const Navbar = () => {
 				</Link>
 				<nav className="flex items-center gap-2 md:gap-4">
 					<ul className="text-foreground flex flex-wrap items-center gap-4 text-sm font-medium">
-						<li>
-							<Link
-								href="/"
-								className="text-foreground hover:text-primary transition-colors"
-							>
-								Home
-							</Link>
-						</li>
-						<li>
-							<Link
-								href="/about"
-								className="text-foreground hover:text-primary transition-colors"
-							>
-								About
-							</Link>
-						</li>
-						<li>
-							<Link
-								href="/contact"
-								className="text-foreground hover:text-primary transition-colors"
-							>
-								Contact
-							</Link>
-						</li>
+						{NAV_LINKS.map((link) => {
+							const isActive = currentPath === link.href;
+							return (
+								<li key={link.href}>
+									<Link
+										href={link.href}
+										className={cn(
+											"text-foreground hover:text-primary",
+											"after:bg-primary relative px-1 py-1 transition-colors duration-200 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full",
+											isActive
+												? "text-foreground after:bg-primary after:w-full"
+												: "text-foreground/70",
+										)}
+									>
+										{link.label.charAt(0).toUpperCase() +
+											link.label.slice(1)}
+									</Link>
+								</li>
+							);
+						})}
 						<li>
 							<Button
 								id="theme-toggle"

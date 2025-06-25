@@ -25,7 +25,7 @@ const { title, canonicalUrl = SITE.href } = Astro.props;
 		class="flex h-fit min-h-screen w-full flex-col gap-y-4 font-sans sm:gap-y-6"
 	>
 		<!-- Header section -->
-		<Navbar client:load />
+		<Navbar client:load currentPath={Astro.url.pathname} />
 		<!-- Main content area -->
 		<main
 			class="bg-background mt-16 flex grow flex-col lg:mt-6"
